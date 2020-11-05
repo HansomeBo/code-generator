@@ -18,7 +18,7 @@
 		select * from ${tableName} where 1 = 1
 #foreach($column in $columns)
 	#if($column.columnName != $pk.columnName)
-		<if test="$column.attrname != null"> and `$column.columnName` = #{$column.attrname}#if($velocityCount != $columns.size()), #end</if>
+		<if test="$column.attrname != null"> and `$column.columnName` = #{$column.attrname}#if($velocityCount != $columns.size()) #end</if>
 	#end
 #end
 	</select>

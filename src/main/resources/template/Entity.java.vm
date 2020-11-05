@@ -1,5 +1,6 @@
-package ${package}.entity;
+package ${entityPakage};
 
+import com.hacker.common.core.domain.BasicEntity;
 import java.io.Serializable;
 import java.util.Date;
 import lombok.Data;
@@ -16,12 +17,15 @@ import java.math.BigDecimal;
  * @date ${datetime}
  */
 @Data
-public class ${className} implements Serializable {
+public class ${className} extends BasicEntity<String> implements Serializable {
+
 	private static final long serialVersionUID = 1L;
 	
 #foreach ($column in $columns)
-	//$column.comments
-	private $column.attrType $column.attrname;
+	#if($column.attrname != "id" && $column.attrname != "createDatetime" && $column.attrname != "createUser" && $column.attrname != "updateDatetime" && $column.attrname != "updateUser")
+		//$column.comments
+		private $column.attrType $column.attrname;
+	#end
 #end
 
 }

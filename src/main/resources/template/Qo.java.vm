@@ -18,8 +18,10 @@ import java.math.BigDecimal;
 public class ${className}Qo extends Page {
 	
 #foreach ($column in $columns)
-	//$column.comments
-	private $column.attrType $column.attrname;
+	#if($column.attrname != "id" && $column.attrname != "createDatetime" && $column.attrname != "createUser" && $column.attrname != "updateDatetime" && $column.attrname != "updateUser")
+		//$column.comments
+		private $column.attrType $column.attrname;
+	#end
 #end
 
 }

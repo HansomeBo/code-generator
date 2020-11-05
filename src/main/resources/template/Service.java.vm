@@ -1,4 +1,4 @@
-package ${package}.service;
+package ${servicePakage};
 
 import ${entityPakage}.${className};
 import ${package}.model.qo.${className}Qo;

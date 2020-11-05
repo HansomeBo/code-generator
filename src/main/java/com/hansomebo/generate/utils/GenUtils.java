@@ -16,6 +16,7 @@ import org.apache.velocity.app.Velocity;
 import java.io.File;
 import java.io.IOException;
 import java.io.StringWriter;
+import java.time.Instant;
 import java.util.*;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
@@ -207,11 +208,11 @@ public class GenUtils {
         }
 
         if (template.contains("Dao.xml.vm")) {
-            return "main" + File.separator + "resources" + File.separator + "mapper" + File.separator + "generator" + File.separator + className + "Mapper.xml";
+            return "main" + File.separator + "resources" + File.separator + "mapper" + File.separator + className + "Mapper.xml";
         }
 
         if (template.contains("Qo.java.vm")) {
-            return packagePath + "qo" + File.separator + className + "Qo.java";
+            return packagePath + "model" + File.separator + "qo" + File.separator + className + "Qo.java";
         }
 
         return null;
