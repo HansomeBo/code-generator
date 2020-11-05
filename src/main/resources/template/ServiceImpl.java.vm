@@ -1,0 +1,61 @@
+package ${servicePakage}.impl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import com.hacker.common.core.page.PageModel;
+import com.hacker.common.datasource.page.PagingHelper;
+import java.util.List;
+import java.util.Map;
+
+import ${mapperInterfacePakage}.${className}Mapper;
+import ${entityPakage}.${className};
+import ${package}.model.qo.${className}Qo;
+import ${servicePakage}.${className}Service;
+
+
+
+
+
+@Service("${classname}Service")
+public class ${className}ServiceImpl implements ${className}Service {
+
+	@Autowired
+	private ${className}Mapper ${classname}Mapper;
+	
+	@Override
+	public ${className} queryById(${pk.attrType} ${pk.attrname}){
+		return ${classname}Mapper.queryById(${pk.attrname});
+	}
+	
+	@Override
+	public PageModel<${className}> queryList(${className}Qo ${classname}Qo){
+		PagingHelper.startPaging(${classname}Qo.getPageNum(), ${classname}Qo.getPageSize());
+		List<${className}> list = ${classname}Mapper.queryList(${classname}Qo);
+		return PagingHelper.pageModel(list);
+	}
+	
+	@Override
+	public Boolean save(${className} ${classname}){
+		int count = ${classname}Mapper.save(${classname});
+		return (count > 0);
+	}
+	
+	@Override
+	public Boolean update(${className} ${classname}){
+		int count = ${classname}Mapper.update(${classname});
+		return (count > 0);
+	}
+	
+	@Override
+	public Boolean delete(${pk.attrType} ${pk.attrname}){
+		int count = ${classname}Mapper.delete(${pk.attrname});
+		return (count > 0);
+	}
+	
+	@Override
+	public Boolean deleteBatch(${pk.attrType}[] ${pk.attrname}s){
+		int count = ${classname}Mapper.deleteBatch(${pk.attrname}s);
+		return (count > 0);
+	}
+	
+}

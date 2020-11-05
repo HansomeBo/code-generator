@@ -1,0 +1,28 @@
+package ${mapperInterfacePakage};
+
+import ${entityPakage}.${className};
+import ${package}.model.qo.${className}Qo;
+import org.apache.ibatis.annotations.Mapper;
+import java.util.List;
+
+/**
+ * ${comments}
+ * 
+ * @author ${author}
+ * @date ${datetime}
+ */
+@Mapper
+public interface ${className}Mapper{
+
+    ${className} queryById(${pk.attrType} ${pk.attrname});
+
+    List<${className}> queryList(${className}Qo ${classname}Qo);
+
+    int save(${className} ${classname});
+
+    int update(${className} ${classname});
+
+    int delete(${pk.attrType} ${pk.attrname});
+
+    int deleteBatch(${pk.attrType}[] ${pk.attrname}s);
+}

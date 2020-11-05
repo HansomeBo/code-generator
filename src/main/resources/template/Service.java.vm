@@ -1,0 +1,30 @@
+package ${package}.service;
+
+import ${entityPakage}.${className};
+import ${package}.model.qo.${className}Qo;
+import com.hacker.common.core.page.PageModel;
+import com.hacker.common.datasource.page.PagingHelper;
+
+import java.util.List;
+import java.util.Map;
+
+/**
+ * ${comments}
+ * 
+ * @author ${author}
+ * @date ${datetime}
+ */
+public interface ${className}Service {
+	
+	${className} queryById(${pk.attrType} ${pk.attrname});
+
+	PageModel<${className}> queryList(${className}Qo ${classname}Qo);
+
+	Boolean save(${className} ${classname});
+	
+	Boolean update(${className} ${classname});
+
+	Boolean delete(${pk.attrType} ${pk.attrname});
+
+	Boolean deleteBatch(${pk.attrType}[] ${pk.attrname}s);
+}

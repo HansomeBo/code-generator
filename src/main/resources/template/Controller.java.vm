@@ -1,0 +1,68 @@
+package ${controllerPakage};
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import ${entityPakage}.${className};
+import ${package}.model.qo.${className}Qo;
+import ${servicePakage}.${className}Service;
+import com.hacker.common.core.page.PageModel;
+
+
+
+
+/**
+ * ${comments}
+ * 
+ * @author ${author}
+ * @date ${datetime}
+ */
+@RestController
+@RequestMapping("${pathName}")
+public class ${className}Controller {
+
+	@Autowired
+	private ${className}Service ${classname}Service;
+	
+	/**
+	 * 列表
+	 */
+	@PostMapping("/list")
+	public PageModel<${className}> list(@RequestBody ${className}Qo ${classname}Qo){
+		return ${classname}Service.queryList(${classname}Qo);
+	}
+	
+	
+	/**
+	 * 信息
+	 */
+	@GetMapping("/queryById/{${pk.attrname}}")
+	public ${className} queryById(@PathVariable("${pk.attrname}") ${pk.attrType} ${pk.attrname}){
+		return ${classname}Service.queryById(${pk.attrname});
+	}
+	
+	/**
+	 * 保存
+	 */
+	@PostMapping("/save")
+	public Boolean save(@RequestBody ${className} ${classname}){
+		return ${classname}Service.save(${classname});
+	}
+	
+	/**
+	 * 修改
+	 */
+	@PostMapping("/update")
+	public Boolean update(@RequestBody ${className} ${classname}){
+		return ${classname}Service.update(${classname});
+	}
+	
+	/**
+	 * 删除
+	 */
+	@DeleteMapping("/delete")
+	public Boolean delete(@RequestBody ${pk.attrType}[] ${pk.attrname}s){
+		return ${classname}Service.deleteBatch(${pk.attrname}s);
+	}
+	
+}
