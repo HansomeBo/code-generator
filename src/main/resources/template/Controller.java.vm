@@ -60,9 +60,9 @@ public class ${className}Controller {
 	/**
 	 * 删除
 	 */
-	@DeleteMapping("/delete")
-	public Boolean delete(@RequestBody ${pk.attrType}[] ${pk.attrname}s){
-		return ${classname}Service.deleteBatch(${pk.attrname}s);
+	@GetMapping("/delete/{${pk.attrname}}")
+	public Boolean delete(@PathVariable("${pk.attrname}") ${pk.attrType} ${pk.attrname}){
+		return ${classname}Service.delete(${pk.attrname});
 	}
 	
 }
